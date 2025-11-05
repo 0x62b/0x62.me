@@ -6,7 +6,7 @@ function parse(command) {
     case "ls":
       return "about.html index.html";
     case "about":
-      return '<a href="about.html">here</a>';
+      location.href = 'about.html';
     default:
       return "Command does not exist."
   }
