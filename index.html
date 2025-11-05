@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>0x62</title>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="static/css/term.css"/>
+    <script src="static/js/parser.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("term-input").addEventListener("submit", function(e) {
+          e.preventDefault();
+          command();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="term-output">
+      Welcome. For a list of available commands, type 'help' or '?'.<br/>
+    </div>
+    <form id="term-input">
+      visitor@0x62.me ~ $
+      <input type="text" id="cmd-input" autofocus/>
+    </form>
+  </body>
+</html>
