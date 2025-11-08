@@ -9,8 +9,6 @@ function parse(command) {
       if (command.length > 1) {
         switch(command[1]) {
           case 'zh':
-          case 'cn':
-          case 'chinese':
           case '中文':
             location.href = `about-zh.html`;
             break;
@@ -19,7 +17,6 @@ function parse(command) {
             location.href = 'about-de.html';
             break;
           case 'en':
-          case 'eng':
           case 'english':
             location.href = 'about.html';
             break;
@@ -31,6 +28,27 @@ function parse(command) {
       break;
     case "projects":
       location.href = 'projects.html';
+      break;
+    case "contact":
+      if (command.length > 1) {
+        switch(command[1]) {
+          case 'zh':
+          case '中文':
+            location.href = `contact-zh.html`;
+            break;
+          case 'de':
+          case 'deutsch':
+            location.href = 'contact-de.html';
+            break;
+          case 'en':
+          case 'english':
+            location.href = 'contact.html';
+            break;
+          default:
+            return "parameter 1 invalid";
+        }
+      }
+      else location.href = 'contact.html';
       break;
     default:
       return "Command does not exist."
