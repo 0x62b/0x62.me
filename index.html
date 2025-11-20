@@ -6,11 +6,14 @@
     <link rel="stylesheet" type="text/css" href="/static/css/term.css"/>
     <script src="/static/js/parser.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", async function() {
         document.getElementById("term-input").addEventListener("submit", function(e) {
           e.preventDefault();
           command();
         });
+
+        document.getElementById("ipaddr").innerText = await (await fetch("https://myexternalip.com/raw")).text();
+        document.getElementById("usragent").innerText = navigator.userAgent;
       });
       document.addEventListener("click", function() {
         document.getElementById("cmd-input").focus();
@@ -19,6 +22,11 @@
   </head>
   <body>
     <div id="term-output">
+      _________________________________________<br/><br/>
+      0x62-OS v0.1<br/>
+      <span class="text-green">IP: </span><span id="ipaddr"></span><br/>
+      <span class="text-green">User-Agent: </span><span id="usragent"></span><br/>
+      _________________________________________<br/><br/>
       Welcome. For a list of available commands, type 'help' or '?'.<br/>
     </div>
     <form id="term-input">
