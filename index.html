@@ -6,6 +6,25 @@
     <link rel="stylesheet" type="text/css" href="/static/css/term.css"/>
     <script src="/static/js/parser.js"></script>
     <script>
+      function getBrowser() {
+        const userAgent = navigator.userAgent;
+        if (userAgent.includes("Chrome") && !userAgent.includes("Edg")) {
+            return "Google Chrome";
+        } else if (userAgent.includes("Firefox")) {
+            return "Mozilla Firefox";
+        } else if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
+            return "Safari";
+        } else if (userAgent.includes("Edg")) {
+            return "Microsoft Edge";
+        } else if (userAgent.includes("Opera") || userAgent.includes("OPR")) {
+            return "Opera";
+        } else if (userAgent.includes("Trident") || userAgent.includes("MSIE")) {
+            return "Internet Explorer";
+        } else {
+            return "Unknown";
+        }
+      }
+
       document.addEventListener("DOMContentLoaded", async function() {
         document.getElementById("term-input").addEventListener("submit", function(e) {
           e.preventDefault();
@@ -13,7 +32,7 @@
         });
 
         document.getElementById("ipaddr").innerText = await (await fetch("https://myexternalip.com/raw")).text();
-        document.getElementById("usragent").innerText = navigator.userAgent;
+        document.getElementById("browser").innerText = getBrowser();
       });
       document.addEventListener("click", function() {
         document.getElementById("cmd-input").focus();
@@ -25,7 +44,7 @@
       _________________________________________<br/><br/>
       0x62-OS v0.1<br/>
       <span class="text-green">IP: </span><span id="ipaddr"></span><br/>
-      <span class="text-green">User-Agent: </span><span id="usragent"></span><br/>
+      <span class="text-green">Browser: </span><span id="browser"></span><br/>
       _________________________________________<br/><br/>
       Welcome. For a list of available commands, type 'help' or '?'.<br/>
     </div>
