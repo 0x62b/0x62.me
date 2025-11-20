@@ -57,7 +57,7 @@ function command() {
   let box = document.getElementById("cmd-input");
   let cmd = box.value;
   let ret = parse(cmd.split(' '));
-  document.getElementById("term-output").innerText += "visitor@0x62.me ~ $ " + cmd + "\n";
-  document.getElementById("term-output").innerText += (ret + "\n");
+  document.getElementById("term-output").innerHTML += "visitor@0x62.me ~ $ " + cmd + "<br/>";
+  document.getElementById("term-output").innerHTML += (ret + "\n") + "<br/>";
   box.value = "";
 }
