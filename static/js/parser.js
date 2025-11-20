@@ -2,7 +2,11 @@ function parse(command) {
   switch(command[0]) {
     case "help":
     case "?":
-      return "Available commands: help ? about projects contact";
+      return '<span class="text-green">Available commands</span><br/>\
+              help ? - show this help<br/>\
+              about [language: optional] - show my about page in en, zh, or de<br/>\
+              projects [language: optional] - show my projects page in en, zh, or de<br/>\
+              contact [language: optional] - show my contact page in en, zh, or de';
     case "about":
       if (command.length > 1) {
         switch(command[1]) {
