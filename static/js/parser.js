@@ -73,6 +73,9 @@ function parse(command) {
     case "reboot":
       location.href = "/redirecter.html?msg=Rebooting&redirect=/index.html";
       break;
+    case "clear":
+      document.getElementById("term-output").innerText = "";
+      return '';
     default:
       return '<span class="text-red">Command not found</span>'
   }
