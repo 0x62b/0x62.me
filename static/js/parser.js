@@ -70,6 +70,9 @@ function parse(command) {
       }
       else location.href = 'contact.html';
       break;
+    case "reboot":
+      location.href = "/redirecter.html?msg=Rebooting&redirect=/index.html";
+      break;
     default:
       return '<span class="text-red">Command not found</span>'
   }
