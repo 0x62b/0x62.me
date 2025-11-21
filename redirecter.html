@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+    </style>
+    <script>
+      function getParam(param) {
+        const split = window.location.href.split("?")[1].split("&");
+        for (let i = 0; i < split.length; i++) {
+          if (split[i].startsWith(param)) {
+            return split[i].split("=")[1];
+          }
+        }
+      }
+
+      function redirect() {
+        location.href = getParam("redirect");
+      }
+
+      function setText() {
+        document.getElementById("message").innerText = getParam("msg");
+        setTimeout(redirect, 4167);
+      }
+
+      document.addEventListener("DOMContentLoaded", setText);
+    </script>
+  </head>
+  <body>
+    <span id="message">Redirecting</span>
+    <br/>
+    <img src="/static/img/spinner.gif" width="25%" height="25%"/>
+  </body>
+</html>
