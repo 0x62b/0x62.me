@@ -79,7 +79,7 @@ function command() {
   let box = document.getElementById("cmd-input");
   let cmd = box.value;
   let ret = parse(cmd.split(' '));
-  document.getElementById("term-output").innerHTML += 'visitor@0x62.me <span class="text-green">~</span>: $ ' + cmd + "<br/>";
+  document.getElementById("term-output").innerHTML += 'visitor@0x62.me: <span class="text-green">~</span> $ ' + cmd + "<br/>";
   document.getElementById("term-output").innerHTML += (ret + "\n") + "<br/>";
   box.value = "";
 }
