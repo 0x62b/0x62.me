@@ -77,12 +77,13 @@ async function parse(command) {
       document.getElementById("term-output").innerText = "";
       return '';
     case "curl":
+      if (command.length != 2) return '<span class="text-red">Need 1 arg</span>';
       return import('./commands/curl.js').then(async curl => {
-        return (await curl.curl('https://myexternalip.com/raw')).trim();
+        return (await curl.curl(command[1])).trim();
       })
       break;
     default:
-      return '<span class="text-red">Command not found</span>'
+      return '<span class="text-red">Command not found</span>';
   }
 }
 
