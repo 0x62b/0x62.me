@@ -1,3 +1,7 @@
+function addText(text) {
+  document.getElementById("term-output").innerHTML += text;
+}
+
 async function parse(command) {
   switch(command[0]) {
     case "help":
@@ -42,8 +46,8 @@ async function parse(command) {
 async function command() {
   let box = document.getElementById("cmd-input");
   let cmd = box.value;
-  let ret = await parse(cmd.split(' '));
-  document.getElementById("term-output").innerHTML += 'visitor@0x62.me: <span class="text-green">~</span> $ ' + cmd + "<br/>";
-  document.getElementById("term-output").innerHTML += (ret + "\n") + "<br/>";
   box.value = "";
+  addText('visitor@0x62.me: <span class="text-green">~</span> $ ' + cmd + "<br/>");
+  let ret = await parse(cmd.split(' '));
+  addText((ret + "\n") + "<br/>");
 }
