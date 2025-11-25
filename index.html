@@ -26,9 +26,9 @@
       }
 
       document.addEventListener("DOMContentLoaded", async function() {
-        document.getElementById("term-input").addEventListener("submit", function(e) {
+        document.getElementById("term-input").addEventListener("submit", async function(e) {
           e.preventDefault();
-          command();
+          await command();
         });
 
         document.getElementById("ipaddr").innerText = await (await fetch("https://myexternalip.com/raw")).text();

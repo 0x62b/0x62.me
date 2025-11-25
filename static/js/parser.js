@@ -1,4 +1,4 @@
-function parse(command) {
+async function parse(command) {
   switch(command[0]) {
     case "help":
     case "?":
@@ -76,15 +76,20 @@ function parse(command) {
     case "clear":
       document.getElementById("term-output").innerText = "";
       return '';
+    case "curl":
+      return import('./commands/curl.js').then(async curl => {
+        return (await curl.curl('https://myexternalip.com/raw')).trim();
+      })
+      break;
     default:
       return '<span class="text-red">Command not found</span>'
   }
 }
 
-function command() {
+async function command() {
   let box = document.getElementById("cmd-input");
   let cmd = box.value;
-  let ret = parse(cmd.split(' '));
+  let ret = await parse(cmd.split(' '));
   document.getElementById("term-output").innerHTML += 'visitor@0x62.me: <span class="text-green">~</span> $ ' + cmd + "<br/>";
   document.getElementById("term-output").innerHTML += (ret + "\n") + "<br/>";
   box.value = "";
