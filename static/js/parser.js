@@ -8,68 +8,17 @@ async function parse(command) {
               projects [language: optional] - show my projects page in en, zh, or de<br/>\
               contact [language: optional] - show my contact page in en, zh, or de';
     case "about":
-      if (command.length > 1) {
-        switch(command[1]) {
-          case 'zh':
-          case '中文':
-            location.href = `zh/about.html`;
-            break;
-          case 'de':
-          case 'deutsch':
-            location.href = 'de/about.html';
-            break;
-          case 'en':
-          case 'english':
-            location.href = 'about.html';
-            break;
-          default:
-            return '<span class="text-red">parameter 1 invalid</span>';
-        }
-      }
-      else location.href = 'about.html';
-      break;
+      return import('./commands/redirect.js').then(redirect => {
+        return redirect.redirect('about.html', command);
+      });
     case "projects":
-      if (command.length > 1) {
-        switch(command[1]) {
-          case 'zh':
-          case '中文':
-            location.href = `zh/projects.html`;
-            break;
-          case 'de':
-          case 'deutsch':
-            location.href = 'de/projects.html';
-            break;
-          case 'en':
-          case 'english':
-            location.href = 'projects.html';
-            break;
-          default:
-            return '<span class="text-red">parameter 1 invalid</span>';
-        }
-      }
-      else location.href = 'projects.html';
-      break;
+      return import('./commands/redirect.js').then(redirect => {
+        return redirect.redirect('projects.html', command);
+      });
     case "contact":
-      if (command.length > 1) {
-        switch(command[1]) {
-          case 'zh':
-          case '中文':
-            location.href = `zh/contact.html`;
-            break;
-          case 'de':
-          case 'deutsch':
-            location.href = 'de/contact.html';
-            break;
-          case 'en':
-          case 'english':
-            location.href = 'contact.html';
-            break;
-          default:
-            return '<span class="text-red">parameter 1 invalid</span>';
-        }
-      }
-      else location.href = 'contact.html';
-      break;
+      return import('./commands/redirect.js').then(redirect => {
+        return redirect.redirect('contact.html', command);
+      });
     case "reboot":
       location.href = "/redirecter.html?msg=Rebooting&redirect=/index.html";
       break;
@@ -80,8 +29,7 @@ async function parse(command) {
       if (command.length != 2) return '<span class="text-red">Need 1 arg</span>';
       return import('./commands/curl.js').then(async curl => {
         return (await curl.curl(command[1])).trim();
-      })
-      break;
+      });
     default:
       return '<span class="text-red">Command not found</span>';
   }
