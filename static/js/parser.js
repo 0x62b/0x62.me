@@ -26,8 +26,12 @@ async function parse(command) {
         return redirect.redirect('contact.html', command);
       });
     case "reboot":
-      location.href = "/redirecter.html?msg=Rebooting&redirect=/index.html";
-      break;
+      addText('System will reboot now.<br/>');
+      await new Promise(res => setTimeout(res, 2000));
+      addText('[ <span class="text-green">OK</span> ] Reached target System Reboot.<br/>');
+      await new Promise(res => setTimeout(res, 500));
+      location.reload();
+      return '';
     case "clear":
       document.getElementById("term-output").innerText = "";
       return '';
