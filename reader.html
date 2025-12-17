@@ -14,9 +14,14 @@
       window.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
         const page = params.get('page');
-        
+        let lang = params.get('lang');
+
+        if (!lang) {
+          lang = "en";
+        }
+
         if (page) {
-          document.getElementById('content').setAttribute('src', page);
+          document.getElementById('content').setAttribute('src', `${page}?lang=${lang}`);
         }
 
         const embeds = document.querySelectorAll('embed');

@@ -8,5 +8,5 @@ async function updateContent(lang) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  updateContent('en');
+  updateContent(new URLSearchParams(window.location.search).get("lang"));
 })
