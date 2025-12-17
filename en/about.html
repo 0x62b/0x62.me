@@ -2,35 +2,34 @@
 <html>
   <head>
     <title>0x62</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+    <script src="/static/js/localisation.js"></script>
   </head>
   <body style="height: 100vh;">
     <header style="display: flex; flex-direction: row; justify-content: space-between;">
       <div></div>
       <div>
-        Language:
-        <a class="text-green" href="/zh/about.html">中文</a>
-        <a class="text-green" href="/de/about.html">Deutsch</a>
+        <span class="text-green" onClick="updateContent('en')"><u>English</u></span>
+        <span class="text-green" onClick="updateContent('zh')"><u>中文</u></span>
+        <span class="text-green" onClick="updateContent('de')"><u>Deutsch</u></span>
       </div>
     </header>
-    <h1>Hi</h1>
-    <p>
-      I'm Benjamin, also known online as <span class="text-green">0x62</span>. I am a high
-      school student in Australia, who enjoys coding, hardware, and procrastinating. I am
-      fluent in English, know HSK4 level Chinese, and learning German.
-    </p>
+    <h1 data-i18n="hi"></h1>
+    <p data-i18n="about_me"></p>
     <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
       <div>
         <img src="/static/img/python.png" width="20%" style="padding: 32px;"/>
         <img src="/static/img/ts.png" width="10%" style="padding: 32px;"/>
       </div>
-      <h2>My favourite languages are Python and TypeScript!</h2>
-      <p>These are my most used languages, but I also know Java, C++, C#, and JavaScript.</p>
+      <h2 data-i18n="languages"></h2>
+      <p data-i18n="known_languages"></p>
     </div>
 
     <br/>
 
-    <h2>Here are my coding stats since June 20, 2025!</h2>
+    <h2 data-i18n="stats"></h2>
     <iframe src="https://github-readme-stats.hackclub.dev/api/wakatime?username=10640&api_domain=hackatime.hackclub.com&theme=darcula&custom_title=Hackatime+Stats&layout=compact&cache_seconds=0&langs_count=8" style="height: 25%; width: 30%; border: none;"></iframe>
   </body>
 </html>
