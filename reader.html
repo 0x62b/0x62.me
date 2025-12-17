@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+    <script>
+      window.addEventListener("keydown", (e) => {
+        if (e.key == 'q' || e.key == 'Q') location.href = '/index.html';
+        else if (e.key == 'g' || e.key == 'G') location.href = 'https://github.com/0x62b';
+        else if (e.key == 'w' || e.key == 'W') location.href = 'https://wasteof.money/users/0x62';
+      });
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
+        const page = params.get('page');
+        
+        if (page) {
+          document.getElementById('content').setAttribute('src', page);
+        }
+      });
+    </script>
+  </head>
+  <body style="height: 95vh; display: flex; flex-direction: column;">
+    <div style="height: 85%">
+      <embed id="content" type="text/html" width="100%" height="100%"/>
+    </div>
+    <div id="footer" style="height: 15%;">
+      <embed src="footer.html" type="text/html" width="100%" height="100%"/>
+    </div>
+  </body>
+</html>
