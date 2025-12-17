@@ -25,6 +25,10 @@ async function parse(command) {
       return import('./commands/redirect.js').then(redirect => {
         return redirect.redirect('contact.html', command);
       });
+    case "status":
+      return import('./commands/redirect.js').then(redirect => {
+        return redirect.redirect('status.html', command);
+      })
     case "reboot":
       addText('System will reboot now.<br/>');
       await new Promise(res => setTimeout(res, 2000));
