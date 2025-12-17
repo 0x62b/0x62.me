@@ -3,11 +3,13 @@
   <head>
     <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
     <script>
-      window.addEventListener("keydown", (e) => {
+      function handleKeyDown(e) {
         if (e.key == 'q' || e.key == 'Q') location.href = '/index.html';
         else if (e.key == 'g' || e.key == 'G') location.href = 'https://github.com/0x62b';
         else if (e.key == 'w' || e.key == 'W') location.href = 'https://wasteof.money/users/0x62';
-      });
+      }
+
+      window.addEventListener("keydown", handleKeyDown);
 
       window.addEventListener('DOMContentLoaded', () => {
         const params = new URLSearchParams(window.location.search);
@@ -16,6 +18,16 @@
         if (page) {
           document.getElementById('content').setAttribute('src', page);
         }
+
+        const embeds = document.querySelectorAll('embed');
+        embeds.forEach(embed => {
+          embed.addEventListener('load', () => {
+            const window = embed.contentWindow || embed.getSVGDocument()?.defaultView;
+            if (window) {
+              window.addEventListener('keydown', handleKeyDown);
+            }
+          });
+        });
       });
     </script>
   </head>
