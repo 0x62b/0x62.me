@@ -3,5 +3,11 @@
   "about_me": "我是Benjamin，在网络上又称 <span class=\"text-green\">0x62</span>. 我是一个澳洲的中学生，喜欢编程、电子、拖延。我英语流利，中文HSK4水平，在学德语。",
   "languages": "我最喜欢的编程语言是Python和TypeScript。",
   "known_languages": "这是我最常用的语言，但我也会Java、 C++、 C#、 JavaScript。",
-  "stats": "这是我2025/06/20之后编程的时间："
+  "stats": "这是我2025/06/20之后编程的时间：",
+  "contact": "联系",
+  "email": "邮箱: 0x62@duck.com",
+  "phone": "电话: 使用slack或邮件联系我",
+  "wechat": "微信: _0x62656e",
+  "my_projects": "我的项目",
+  "more_github": "我的<a href=\"https://github.com/0x62b\">GitHub</a>有更多"
 }

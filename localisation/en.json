@@ -3,5 +3,11 @@
   "about_me": "I'm Benjamin, also known online as <span class=\"text-green\">0x62</span>. I am a high school student in Australia, who enjoys coding, hardware, and procrastinating. I am fluent in English, know HSK4 level Chinese, and learning German.",
   "languages": "My favourite languages are Python and TypeScript!",
   "known_languages": "These are my most used languages, but I also know Java, C++, C#, and JavaScript.",
-  "stats": "Here are my coding stats since June 20, 2025!"
+  "stats": "Here are my coding stats since June 20, 2025!",
+  "contact": "Contact Me",
+  "email": "Email: 0x62@duck.com",
+  "phone": "Phone: contact me on slack or email",
+  "wechat": "WeChat: _0x62656e",
+  "my_projects": "My Projects",
+  "more_github": "More on my <a href=\"https://github.com/0x62b\">GitHub</a>"
 }

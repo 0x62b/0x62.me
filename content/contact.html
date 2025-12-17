@@ -2,25 +2,28 @@
 <html>
   <head>
     <title>0x62</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+    <script src="/static/js/localisation.js"></script>
   </head>
   <body>
     <header style="display: flex; flex-direction: row; justify-content: space-between;">
       <div></div>
       <div>
-        Language:
-        <a class="text-green" href="/zh/contact.html">中文</a>
-        <a class="text-green" href="/de/contact.html">Deutsch</a>
+        <span class="text-green" onClick="updateContent('en')"><u>English</u></span>
+        <span class="text-green" onClick="updateContent('zh')"><u>中文</u></span>
+        <span class="text-green" onClick="updateContent('de')"><u>Deutsch</u></span>
       </div>
     </header>
 
-    <h1>Contact Me</h1>
+    <h1 data-i18n="contact"></h1>
     <div>
       <p>HC Slack: @0x62</p>
-      <p>Email: benjamin@0x62.me or 0x62@duck.com</p>
+      <p data-i18n="email"></p>
       <p>Signal: benjamin.492</p>
-      <p>Phone: contact me via slack or email if you need this for some reason</p>
-      <p>WeChat: _0x62656e</p>
+      <p data-i18n="phone"></p>
+      <p data-i18n="wechat"></p>
       <p>Discord: 0x62656e</p>
       <p></p>
     </div>
