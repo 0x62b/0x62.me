@@ -11,6 +11,7 @@ async function parse(command) {
               about [language: optional] - show my about page in en, zh, or de<br/>\
               projects [language: optional] - show my projects page in en, zh, or de<br/>\
               contact [language: optional] - show my contact page in en, zh, or de<br/>\
+              status - show my status (currently en only)\
               curl [url] - curl command (it works) that i made when i was bored<br/>\
               ...and a few basic terminal commands, figure it out (or look at the code)';
     case "about":
