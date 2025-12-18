@@ -38,31 +38,64 @@
         document.getElementById("cmd-input").focus();
       })
     </script>
+    <script>
+      setTimeout(() => {
+        Array.from(document.getElementsByClassName("delay-1")).forEach(a => {
+          a.hidden = false;
+        });
+      }, 1000);
+
+      setTimeout(() => {
+        Array.from(document.getElementsByClassName("delay-2")).forEach(a => {
+          a.hidden = false;
+        });
+      }, 1500);
+
+      setTimeout(() => {
+        Array.from(document.getElementsByClassName("delay-3")).forEach(a => {
+          a.hidden = false;
+        });
+      }, 2670);
+
+      setTimeout(() => {
+        Array.from(document.getElementsByClassName("delay-4")).forEach(a => {
+          a.hidden = false;
+        });
+      }, 4100);
+
+      setTimeout(() => {
+        Array.from(document.getElementsByClassName("delay-5")).forEach(a => {
+          a.hidden = false;
+        });
+      }, 6700);
+    </script>
   </head>
   <body>
     <div id="term-output">
-      <span>[ <span class="text-green">OK</span> ] Filesystem Mount.</span>
+      <span class="delay-1" hidden>[ <span class="text-green">OK</span> ] Filesystem Mount.</span>
       <br/>
-      <span>[ <span class="text-red">FAILED</span> ] Show Graphical Interface failed.</span>
+      <span class="delay-2" hidden>[ <span class="text-red">FAILED</span> ] Show Graphical Interface failed.</span>
       <br/>
-      <span>[ <span class="text-green">OK</span> ] Initialise system.</span>
+      <span class="delay-3" hidden>[ <span class="text-green">OK</span> ] Initialise system.</span>
       <br/>
-      <span>[ <span class="text-green">OK</span> ] Reached target System Startup.</span>
+      <span class="delay-4" hidden>[ <span class="text-green">OK</span> ] Reached target System Startup.</span>
       <br/><br/>
-      _________________________________________<br/><br/>
-      0x62-OS v0.1<br/>
-      <span class="text-green">IP: </span><span id="ipaddr"></span>
-      <br/>
-      <span class="text-green">Browser: </span><span id="browser"></span>
-      <br/>
-      <span class="text-green">GitHub: </span><a href="https://github.com/0x62entity/0x62.me" target="_blank">https://github.com/0x62entity/0x62.me</a>
-      <br/>
-      _________________________________________
-      <br/><br/>
-      <span class="text-yellow">Welcome. For a list of available commands, type 'help' or '?'.</span>
-      <br/>
+      <div class="delay-5" hidden>
+        _________________________________________<br/><br/>
+        0x62-OS v0.1<br/>
+        <span class="text-green">IP: </span><span id="ipaddr"></span>
+        <br/>
+        <span class="text-green">Browser: </span><span id="browser"></span>
+        <br/>
+        <span class="text-green">GitHub: </span><a href="https://github.com/0x62entity/0x62.me" target="_blank">https://github.com/0x62entity/0x62.me</a>
+        <br/>
+        _________________________________________
+        <br/><br/>
+        <span class="text-yellow">Welcome. For a list of available commands, type 'help' or '?'.</span>
+        <br/>
+      </div>
     </div>
-    <form id="term-input">
+    <form id="term-input" class="delay-5" hidden>
       visitor@0x62.me: <span class="text-green">~</span> $
       <input type="text" id="cmd-input" autocomplete="off" autofocus/>
     </form>
