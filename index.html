@@ -37,7 +37,7 @@
         const popup = document.getElementById("term-embed");
         const iframe = document.getElementById("term-iframe");
 
-        function closePopup() {
+        window.closePopup = function() {
           popup.style.display = "none";
           document.getElementById("cmd-input").focus();
         }
@@ -45,21 +45,9 @@
         document.addEventListener("keydown", function(e) {
           if (getComputedStyle(popup).display !== "none" && e.key === "q") {
             e.preventDefault();
-            closePopup();
+            window.closePopup();
           }
         });
-
-        const setupIframe = () => {
-          try {
-            iframe.contentWindow.document.addEventListener("keydown", function(e) {
-              if (e.key === "q") {
-                closePopup();
-              }
-            });
-          } catch (e) {}
-        };
-        setupIframe();
-        iframe.addEventListener("load", setupIframe);
       });
       
       document.addEventListener("click", function() {

@@ -6,6 +6,10 @@
       function handleKeyDown(e) {
         if (e.key == 'g' || e.key == 'G') location.href = 'https://github.com/0x62b';
         else if (e.key == 'w' || e.key == 'W') location.href = 'https://wasteof.money/users/0x62';
+        else if (e.key == 'q' || e.key == 'Q') {
+          e.preventDefault();
+          window.parent.closePopup();
+        }
       }
 
       window.addEventListener("keydown", handleKeyDown);
