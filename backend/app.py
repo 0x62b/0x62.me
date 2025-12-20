@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 import requests
 import os
@@ -7,6 +8,7 @@ import os
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/api/slack_online', methods=['GET'])
 def slack_online():
