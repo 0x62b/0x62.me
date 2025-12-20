@@ -33,6 +33,33 @@
 
         document.getElementById("ipaddr").innerText = await (await fetch("https://myexternalip.com/raw")).text();
         document.getElementById("browser").innerText = getBrowser();
+
+        const popup = document.getElementById("term-embed");
+        const iframe = document.getElementById("term-iframe");
+
+        function closePopup() {
+          popup.style.display = "none";
+          document.getElementById("cmd-input").focus();
+        }
+
+        document.addEventListener("keydown", function(e) {
+          if (getComputedStyle(popup).display !== "none" && e.key === "q") {
+            e.preventDefault();
+            closePopup();
+          }
+        });
+
+        const setupIframe = () => {
+          try {
+            iframe.contentWindow.document.addEventListener("keydown", function(e) {
+              if (e.key === "q") {
+                closePopup();
+              }
+            });
+          } catch (e) {}
+        };
+        setupIframe();
+        iframe.addEventListener("load", setupIframe);
       });
       document.addEventListener("click", function() {
         document.getElementById("cmd-input").focus();
@@ -43,31 +70,31 @@
         Array.from(document.getElementsByClassName("delay-1")).forEach(a => {
           a.hidden = false;
         });
-      }, 1000);
+      }, 1067);
 
       setTimeout(() => {
         Array.from(document.getElementsByClassName("delay-2")).forEach(a => {
           a.hidden = false;
         });
-      }, 1500);
+      }, 1670);
 
       setTimeout(() => {
         Array.from(document.getElementsByClassName("delay-3")).forEach(a => {
           a.hidden = false;
         });
-      }, 2670);
+      }, 2067);
 
       setTimeout(() => {
         Array.from(document.getElementsByClassName("delay-4")).forEach(a => {
           a.hidden = false;
         });
-      }, 4100);
+      }, 2467);
 
       setTimeout(() => {
         Array.from(document.getElementsByClassName("delay-5")).forEach(a => {
           a.hidden = false;
         });
-      }, 6700);
+      }, 3041);
     </script>
   </head>
   <body>
@@ -99,5 +126,8 @@
       visitor@0x62.me: <span class="text-green">~</span> $
       <input type="text" id="cmd-input" autocomplete="off" autofocus/>
     </form>
+    <div class="popup" id="term-embed">
+      <iframe id="term-iframe"></iframe>
+    </div>
   </body>
 </html>
