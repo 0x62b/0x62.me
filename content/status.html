@@ -4,15 +4,28 @@
     <title>0x62's status</title>
     <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
     <script>
-      setInterval(() => {
+      function online() {
+
+      }
+
+      setInterval((async function() {
         const date = new Date();
 
-        document.getElementById("time").innerText = 
-          (date.toLocaleTimeString("en-AU", {timeZone: "Australia/Sydney"})) + " local time";
-        
-        document.getElementById("status").innerText =
-          "probably online";
-      }, 1000)
+        document.getElementById("time").innerText = "⏰ " + 
+          (date.toLocaleTimeString("en-AU", {timeZone: "Australia/Sydney"}));
+      }), 1000);
+
+      setInterval(async function() {
+        const res = await fetch("http://localhost:8000/api/slack_online");
+        const data = await res.json();
+        const active = data.presence;
+
+        document.getElementById("status").innerText = (active == "active" ? "🟢 " : "🔴 ") +
+          active;
+
+        //todo: hackatime
+        //todo: spotify
+      }(), 5000);
     </script>
   </head>
   <body>
@@ -21,6 +34,10 @@
       <span id="time"></span>
       <br/>
       <span id="status"></span>
+      <br/>
+      <span id="hacking"></span>
+      <br/>
+      <span id="music"></span>
     </div>
   </body>
 </html>
