@@ -20,8 +20,14 @@
         const data = await res.json();
         const active = data.presence;
 
-        document.getElementById("status").innerText = (active == "active" ? "🟢 " : "🔴 ") +
+        document.getElementById("active").innerText = (active == "active" ? "🟢 " : "🔴 ") +
           active;
+        
+        const res1 = await fetch("http://localhost:8000/api/slack_status");
+        const data1 = await res1.json();
+        const status = data1.profile.status_text;
+
+        document.getElementById("status").innerText = status || "is not doing anything :D";
 
         //todo: hackatime
         //todo: spotify
@@ -33,9 +39,9 @@
     <div>
       <span id="time"></span>
       <br/>
-      <span id="status"></span>
+      <span id="active"></span>
       <br/>
-      <span id="hacking"></span>
+      <span id="status"></span>
       <br/>
       <span id="music"></span>
     </div>
