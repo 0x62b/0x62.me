@@ -61,6 +61,7 @@
         setupIframe();
         iframe.addEventListener("load", setupIframe);
       });
+      
       document.addEventListener("click", function() {
         document.getElementById("cmd-input").focus();
       })
@@ -94,6 +95,7 @@
         Array.from(document.getElementsByClassName("delay-5")).forEach(a => {
           a.hidden = false;
         });
+        document.getElementById("cmd-input").focus();
       }, 3041);
     </script>
   </head>
