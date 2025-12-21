@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <title>New Post</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+    <script>
+      function handleChange(e) {
+        document.getElementById("preview").innerHTML = marked.parse(e.target.value);
+      }
+    </script>
+  </head>
+  <body style="height: 95vh;">
+    <a href="/blog" class="text-green">Return</a>
+    <h1>New Post</h1>
+    <div style="display: flex; flex-direction: row; height: 80%;">
+      <textarea
+        style="background: #444; border: none; width: 50%; margin: 4px; height: 100%;"
+        class="text-white"
+        placeholder="Post"
+        onkeyup="handleChange(event)"
+      ></textarea>
+      <div id="preview" style="width: 50%; margin: 4px; height: 100%"></div>
+    </div>
+  </body>
+</html>
