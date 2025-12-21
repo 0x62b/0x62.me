@@ -2,6 +2,16 @@
 <html>
   <head>
     <title>Reader</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/> 
+    <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
+    <script>
+      async function load() {
+        const res = await fetch("posts/test.md");
+        const text = await res.text();
+        document.getElementById("content").innerHTML = marked.parse(text);
+      }
+      load();
+    </script>
   </head>
   <body>
     <div id="content">
