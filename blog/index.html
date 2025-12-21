@@ -3,15 +3,36 @@
   <head>
     <title>0x62's yapping</title>
     <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+    <script>
+      async function load() {
+        const res = await fetch("posts.json");
+        const json = await res.json();
+        const posts = document.getElementById("posts");
+
+        json.posts.forEach((post) => {
+          posts.innerHTML += `
+          <a href="reader.html?post=${post.filename}" class="text-white" style="text-decoration: none;">
+            <div class="blog-post">
+              <h4>${post.title}</h4>
+              <span>${post.description}</span>
+              <br/><br/>
+              <i>${new Date(post.timestamp).toLocaleString()}</i>
+              <br/><br/>
+            </div>
+          </a>`
+        });
+      }
+      load();
+    </script>
   </head>
   <body>
     <h1>0x62's yapping</h1>
     <p>Here I yap about stuff that interests, concerns, or annoys me.</p>
     <div>
-      <h4>Latest posts</h4>
-      <section id="posts">
-        <!--TODO-->
-      </section>
+      <h3>Latest posts</h4>
+      <div id="posts">
+
+      </div>
     </div>
   </body>
 </html>

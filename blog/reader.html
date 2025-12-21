@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
     <script>
       async function load() {
-        const res = await fetch("posts/test.md");
+        const res = await fetch(`posts/${new URLSearchParams(location.search).get('post')}`);
         const text = await res.text();
         document.getElementById("content").innerHTML = marked.parse(text);
       }
@@ -14,7 +14,12 @@
     </script>
   </head>
   <body style="height: 95vh">
-    <div style="height: 85%">
+    <div style="display: flex; justify-content: space-between;">
+      <a href="/blog" class="text-green">Prev</a>
+      <a href="/blog" class="text-green">Home</a>
+      <a href="/blog" class="text-green">Next</a>
+    </div>
+    <div style="height: 80%">
       <div id="content" width="100%" height="100%"></div>
     </div>
     <div style="height: 15%;">

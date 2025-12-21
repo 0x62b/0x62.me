@@ -16,11 +16,26 @@ body {
   color: coral;
 }
 
+.text-white {
+  color: white;
+}
+
 .project-card {
   background-color: #444;
   padding: 4px;
   margin: 2px;
   border-radius: 5px;
+}
+
+.blog-post {
+  background-color: #444;
+  padding: 4px;
+  margin: 2px;
+  border-radius: 5px;
+}
+
+.blog-post:hover {
+  background-color: #555;
 }
 
 .popup {
