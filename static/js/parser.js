@@ -12,6 +12,7 @@ async function parse(command) {
               projects [language: optional] - show my projects page in en, zh, or de<br/>\
               contact [language: optional] - show my contact page in en, zh, or de<br/>\
               status - show my status (currently en only)\
+              blog - read my yappery (en only)\
               curl [url] - curl command (it works) that i made when i was bored<br/>\
               ...and a few basic terminal commands, figure it out (or look at the code)';
     case "about":
@@ -29,7 +30,9 @@ async function parse(command) {
     case "status":
       return import('./commands/redirect.js').then(redirect => {
         return redirect.redirect('status.html', command);
-      })
+      });
+    case "blog":
+      location.href = '/blog/';
     case "reboot":
       addText('System will reboot now.<br/>');
       await new Promise(res => setTimeout(res, 2000));

@@ -29,6 +29,10 @@
       load();
 
       document.addEventListener("keydown", (e) => {
+        if (e.key == 'g' || e.key == 'G') location.href = 'https://github.com/0x62b';
+        else if (e.key == 'w' || e.key == 'W') location.href = 'https://wasteof.money/users/0x62';
+        else if (e.key == 'q' || e.key == 'Q') location.href = '/';
+
         if (e.key.toUpperCase() == "Y") y = true;
         if (e.key.toUpperCase() == "A" && y) a = true;
         if (e.key.toUpperCase() == "P" && a) p = true;
@@ -37,14 +41,17 @@
       });
     </script>
   </head>
-  <body>
+  <body style="height: 85vh;">
     <h1>0x62's yapping</h1>
     <p>Here I yap about stuff that interests, concerns, or annoys me.</p>
-    <div>
+    <div style="height: 85%">
       <h3>Latest posts</h4>
       <div id="posts">
 
       </div>
+    </div>
+    <div style="height: 15%;">
+      <embed id="footer" src="/footer.html" type="text/html" width="100%" height="100%"/>
     </div>
   </body>
 </html>
