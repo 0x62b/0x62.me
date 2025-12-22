@@ -4,18 +4,14 @@
     <title>0x62's status</title>
     <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
     <script>
-      function online() {
-
-      }
-
-      setInterval((async function() {
+      function interval1() {
         const date = new Date();
 
         document.getElementById("time").innerText = "⏰ " + 
           (date.toLocaleTimeString("en-AU", {timeZone: "Australia/Sydney"}));
-      }), 1000);
+      }
 
-      setInterval(async function() {
+      async function interval2() {
         const res = await fetch("http://localhost:8000/api/slack_online");
         const data = await res.json();
         const active = data.presence;
@@ -31,19 +27,27 @@
 
         //todo: hackatime
         //todo: spotify
-      }(), 5000);
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        setInterval(interval1, 1000);
+        setInterval(interval2, 5000);
+
+        interval1();
+        interval2();
+      })
     </script>
   </head>
   <body>
     <h1>0x62's status</h1>
     <div>
-      <span id="time"></span>
+      <span id="time">loading...</span>
       <br/>
-      <span id="active"></span>
+      <span id="active">loading...</span>
       <br/>
-      <span id="status"></span>
+      <span id="status">loading...</span>
       <br/>
-      <span id="music"></span>
+      <span id="music">loading...</span>
     </div>
   </body>
 </html>
