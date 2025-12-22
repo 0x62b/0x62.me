@@ -1,5 +1,5 @@
 # 0x62.me
-My personal website, made with pure HTML, CSS, and JS. It is basically just a terminal interface on a website with a few pages about myself.
+My personal website, made with pure HTML, CSS, and JS. It is basically just a terminal interface on a website with a few pages about myself, and a blog where i yap about stuff
 
 This website is *not* mobile friendly!
 
