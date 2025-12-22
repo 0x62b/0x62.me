@@ -57,6 +57,14 @@
           alert(`failed to create post, ${res.statusText} - ${(await res.json()).error}`);
         }
       }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key == "Enter") {
+          if (confirm("Create this post?")) {
+            setTimeout(submitPost(), 1000);
+          }
+        }
+      });
     </script>
   </head>
   <body style="height: 95vh;">
