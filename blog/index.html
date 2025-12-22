@@ -4,6 +4,10 @@
     <title>0x62's yapping</title>
     <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
     <script>
+      let y = false;
+      let a = false;
+      let p = false;
+
       async function load() {
         const res = await fetch("posts.json");
         const json = await res.json();
@@ -23,6 +27,14 @@
         });
       }
       load();
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key.toUpperCase() == "Y") y = true;
+        if (e.key.toUpperCase() == "A" && y) a = true;
+        if (e.key.toUpperCase() == "P" && a) p = true;
+
+        if (y && a && p) location.href = "posts/new.html";
+      });
     </script>
   </head>
   <body>
