@@ -1,16 +1,1 @@
-{
-  "posts": [
-    {
-      "title": "Test Post",
-      "description": "post for testing this system",
-      "filename": "test.md",
-      "timestamp": 1766293187410
-    },
-    {
-      "title": "Test Post 2",
-      "description": "another post for testing this system",
-      "filename": "test2.md",
-      "timestamp": 1766673186710
-    }
-  ]
-}
+{"posts": []}

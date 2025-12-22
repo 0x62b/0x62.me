@@ -8,19 +8,70 @@
       function handleChange(e) {
         document.getElementById("preview").innerHTML = marked.parse(e.target.value);
       }
+
+      async function submitPost() {
+        const title = document.getElementById("title").value;
+        const content = document.getElementById("content").value;
+        const description = document.getElementById("description").value;
+
+        if (!title || !content || !description) {
+          alert("missing title/content/description");
+          return;
+        }
+
+        const data = new FormData();
+        data.append("title", title);
+        data.append("content", content);
+        data.append("timestamp", Date.now());
+        data.append("description", description);
+
+        const res = await fetch("http://localhost:8000/api/posts/new", {
+          method: "POST",
+          body: data
+        });
+
+        if (res.ok) {
+          alert("success");
+          location.href = "/blog"
+        } else {
+          alert(`failed to create post, ${res.statusText} - ${(await res.json()).error}`);
+        }
+      }
     </script>
   </head>
   <body style="height: 95vh;">
     <a href="/blog" class="text-green">Return</a>
     <h1>New Post</h1>
-    <div style="display: flex; flex-direction: row; height: 80%;">
+    <input
+      id="title"
+      type="text"
+      placeholder="Title"
+      style="background: #444; border: none; margin: 4px; padding: 8px; color: white; font-size: 16px;"
+      class="text-white"
+    />
+    <input
+      id="description"
+      type="text"
+      placeholder="Description"
+      style="background: #444; border: none; margin: 4px; padding: 8px; color: white; font-size: 16px;"
+      class="text-white"
+    />
+
+    <div style="display: flex; flex-direction: row; height: 70%;">
       <textarea
+        id="content"
         style="background: #444; border: none; width: 50%; margin: 4px; height: 100%;"
         class="text-white"
         placeholder="Post"
         onkeyup="handleChange(event)"
       ></textarea>
-      <div id="preview" style="width: 50%; margin: 4px; height: 100%"></div>
+      <div id="preview" style="width: 50%; margin: 4px; height: 100%; overflow-y: auto;"></div>
     </div>
+    <button
+      onclick="submitPost()"
+      style="background: #4CAF50; border: none; color: white; padding: 12px 24px; margin: 4px; cursor: pointer; font-size: 16px;"
+    >
+      Create Post
+    </button>
   </body>
 </html>
