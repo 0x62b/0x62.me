@@ -12,14 +12,14 @@
       }
 
       async function interval2() {
-        const res = await fetch("http://localhost:8000/api/slack_online");
+        const res = await fetch("http://0x62.me:8000/api/slack_online");
         const data = await res.json();
         const active = data.presence;
 
         document.getElementById("active").innerText = (active == "active" ? "🟢 " : "🔴 ") +
           active;
         
-        const res1 = await fetch("http://localhost:8000/api/slack_status");
+        const res1 = await fetch("http://0x62.me:8000/api/slack_status");
         const data1 = await res1.json();
         const status = data1.profile.status_text;
 
