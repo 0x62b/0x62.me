@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 source .venv/bin/activate
-gunicorn app:app
+gunicorn -b 0.0.0.0:8000 app:app
