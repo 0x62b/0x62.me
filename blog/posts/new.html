@@ -14,8 +14,28 @@
         const content = document.getElementById("content").value;
         const description = document.getElementById("description").value;
 
-        if (!title || !content || !description) {
-          alert("missing title/content/description");
+        if (!title) {
+          if (!content) {
+            if (!description) {
+              alert("missing title/content/description");
+            } else {
+              alert("missing title/content");
+            }
+          } else if (!description) {
+            alert("missing title/description");
+          } else {
+            alert("missing title");
+          }
+          return;
+        } else if (!content) {
+          if (!description) {
+            alert("missing content/description");
+          } else {
+            alert("missing content");
+          }
+          return;
+        } else if (!description) {
+          alert("missing description");
           return;
         }
 
@@ -69,7 +89,7 @@
     </div>
     <button
       onclick="submitPost()"
-      style="background: #4CAF50; border: none; color: white; padding: 12px 24px; margin: 4px; cursor: pointer; font-size: 16px;"
+      style="background: lightgray; border: none; padding: 16px;"
     >
       Create Post
     </button>
