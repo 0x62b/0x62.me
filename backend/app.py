@@ -63,7 +63,11 @@ def new_post():
     content = request.form.get("content")
     description = request.form.get("description")
     timestamp = request.form.get("timestamp")
+    auth = request.form.get("auth")
     
+    if auth != os.environ.get("AUTH"):
+        return jsonify({"error": "authentication failed"}), 403
+
     filename = re.sub(r'[^\w\s-]', '', title.lower())
     filename = re.sub(r'[-\s]+', '-', filename).strip('-')
     filename = f"{filename}.md"

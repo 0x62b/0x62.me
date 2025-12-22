@@ -13,6 +13,12 @@
         const title = document.getElementById("title").value;
         const content = document.getElementById("content").value;
         const description = document.getElementById("description").value;
+        const auth = document.getElementById("auth").value;
+
+        if (!auth) {
+          alert("you need to authenticate");
+          return;
+        }
 
         if (!title) {
           if (!content) {
@@ -44,6 +50,7 @@
         data.append("content", content);
         data.append("timestamp", Date.now());
         data.append("description", description);
+        data.append("auth", auth);
 
         const res = await fetch("http://localhost:8000/api/posts/new", {
           method: "POST",
@@ -81,6 +88,13 @@
       id="description"
       type="text"
       placeholder="Description"
+      style="background: #444; border: none; margin: 4px; padding: 8px; color: white; font-size: 16px;"
+      class="text-white"
+    />
+    <input
+      id="auth"
+      type="password"
+      placeholder="Password"
       style="background: #444; border: none; margin: 4px; padding: 8px; color: white; font-size: 16px;"
       class="text-white"
     />
