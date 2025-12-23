@@ -29,8 +29,8 @@
       load();
 
       document.addEventListener("keydown", (e) => {
-        if (e.key == 'g' || e.key == 'G') location.href = 'https://github.com/0x62b';
-        else if (e.key == 'w' || e.key == 'W') location.href = 'https://wasteof.money/users/0x62';
+        if (e.key == 'g' || e.key == 'G') window.open('https://github.com/0x62b');
+        else if (e.key == 'w' || e.key == 'W') window.open('https://wasteof.money/users/0x62');
         else if (e.key == 'q' || e.key == 'Q') location.href = '/';
 
         if (e.key.toUpperCase() == "Y") y = true;
