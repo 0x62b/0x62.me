@@ -5,3 +5,5 @@ This website is *not* mobile friendly!
 
 Hosted at https://0x62.me.
 <img width="761" height="366" alt="image" src="https://github.com/user-attachments/assets/b098d21d-6369-4cf3-bc05-54cddd49e6a0" />
+
+note: curl command only works on urls without cors same origin policy
