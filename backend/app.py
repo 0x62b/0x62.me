@@ -29,7 +29,7 @@ def slack_online():
         }
     )
     
-    return jsonify(response.json()) #presence
+    return jsonify(response.json())
 
 @app.route("/api/slack_status", methods=['GET'])
 def slack_status():
@@ -47,7 +47,7 @@ def slack_status():
         }
     )
     
-    return jsonify(response.json()) # profile.status_text
+    return jsonify(response.json())
 
 @app.route('/api/spotify', methods=['GET'])
 def spotify_status():
