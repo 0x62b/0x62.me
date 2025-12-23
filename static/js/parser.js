@@ -33,6 +33,7 @@ async function parse(command) {
       });
     case "blog":
       location.href = '/blog/';
+      return;
     case "reboot":
       addText('System will reboot now.<br/>');
       await new Promise(res => setTimeout(res, 2000));
