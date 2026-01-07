@@ -52,7 +52,7 @@
         data.append("description", description);
         data.append("auth", auth);
 
-        const res = await fetch("http://0x62.me:8000/api/posts/new", {
+        const res = await fetch("https://0x62.me:8000/api/posts/new", {
           method: "POST",
           body: data
         });
